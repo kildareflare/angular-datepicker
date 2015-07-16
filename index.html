@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="720kb">
+<html ng-app="kf">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
@@ -25,13 +25,15 @@
       Date 1 is: {{date1}}
     </div>
     <div class="col3">
-      <div class="datepicker"
+      <kf-datepicker date-format="MMMM d, y" date-set="2014/09/07" ng-model="date2"></kf-datepicker>
+      
+      <!--<div class="datepicker"
       date-format="MMMM d, y"
       date-min-limit="2014/09/07"
       date-max-limit="2018/09/07"
       button-prev='<i class="fa fa-arrow-circle-left"></i>'
       button-next='<i class="fa fa-arrow-circle-right"></i>'>
-      <input ng-model="date2" type="text" class="angular-datepicker-input"/>
+      <input ng-model="date2" type="text" class="angular-datepicker-input"/>-->
     </div>
     Date 2 is: {{date2}}
   </div>

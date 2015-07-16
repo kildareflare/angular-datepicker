@@ -3,8 +3,9 @@
 (function (angular) {
   'use strict';
 
-  var app = angular.module('720kb', [
+  var app = angular.module('kf', [
     'ngRoute',
-    '720kb.datepicker'
+    'ui.bootstrap.dateparser',
+    'kf.datepicker'
   ]);
 }(angular));

@@ -1,0 +1,48 @@
+<div>
+    <input class="form-control kf-datepicker-input" ng-model="ngModel" type="text"/>
+    <div class="kf-datepicker-calendar centered" ng-blur="closeCalendar()">
+        <div class="kf-datepicker-calendar-header" ng-hide="isMobile()">
+            <div class="kf-datepicker-calendar-header-left">
+                <a href="javascript:void(0)" ng-click="prevMonth()" title="{{buttonPrevTitle}}"><span class='glyphicon glyphicon-menu-left'></span></a>
+            </div>
+            <div class="kf-datepicker-calendar-header-middle kf-datepicker-calendar-month">
+                {{month}} <a href="javascript:void(0)" ng-click="showYearsPagination = !showYearsPagination"><span>{{year}} <i ng-if="!showYearsPagination"><span class='glyphicon glyphicon-triangle-bottom'></span></i> <i ng-if="showYearsPagination"><span class='glyphicon glyphicon-triangle-top'></span></i> </span> </a>
+            </div>
+            <div class="kf-datepicker-calendar-header-right">
+                <a href="javascript:void(0)" ng-click="nextMonth()" title="{{buttonNextTitle}}"><span class='glyphicon glyphicon-menu-right'></span></a>
+            </div>
+
+        </div>
+        <div class="kf-datepicker-calendar-header" ng-show="isMobile()">
+            <div class="kf-datepicker-calendar-header-middle kf-datepicker-mobile-item kf-datepicker-calendar-month">
+                <select ng-model="month" title="{{dateMonthTitle}}" ng-change="selectedMonthHandle(month)">
+                    <option ng-repeat="item in months" ng-selected="month === item" ng-disabled='!isSelectableMaxDate(item + " " + day + ", " + year) || !isselectablemindate(item + " " + day + ", " + year)' ng-value="item">{{item}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="kf-datepicker-calendar-header" ng-show="isMobile()">
+            <div class="kf-datepicker-calendar-header-middle kf-datepicker-mobile-item kf-datepicker-calendar-month">
+                <select ng-model="mobileYear" title="{{dateYearTitle}}" ng-change="setNewYear(mobileYear)">
+                    <option ng-repeat="item in paginationYears" ng-selected="year === item" ng-value="item" ng-disabled="!isSelectableMinYear(item) || !isSelectableMaxYear(item)">{{item}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="kf-datepicker-calendar-header" ng-show="showYearsPagination">
+            <div class="kf-datepicker-calendar-years-pagination">
+                <a ng-class="{'kf-datepicker-active': y === year, 'kf-datepicker-disabled': !isSelectableMaxYear(y) || !isSelectableMinYear(y)}" href="javascript:void(0)" ng-click="setNewYear(y)" ng-repeat="y in paginationYears">{{y}}</a>
+            </div>
+            <div class="kf-datepicker-calendar-years-pagination-pages">
+                <a href="javascript:void(0)" ng-click="paginateYears(paginationYears[0])" ng-class="{'kf-datepicker-item-hidden': paginationYearsPrevDisabled}"><span class='glyphicon glyphicon-menu-left'></span></a>
+                <a href="javascript:void(0)" ng-click="paginateYears(paginationYears[paginationYears.length -1 ])" ng-class="{'kf-datepicker-item-hidden': paginationYearsNextDisabled}"><span class='glyphicon glyphicon-menu-right'></span></a>
+            </div>
+        </div>
+        <div class="kf-datepicker-calendar-days-header">
+            <div ng-repeat="d in daysInString"> {{d}} </div>
+        </div>
+        <div class="kf-datepicker-calendar-body">
+            <a href="javascript:void(0)" ng-repeat="px in prevMonthDays" class="kf-datepicker-calendar-day kf-datepicker-disabled">{{px}}</a>
+            <a href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)" ng-class="{'kf-datepicker-active': day === item, 'kf-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item)}" class="kf-datepicker-calendar-day">{{item}}</a>
+            <a href="javascript:void(0)" ng-repeat="nx in nextMonthDays" class="kf-datepicker-calendar-day kf-datepicker-disabled">{{nx}}</a>
+        </div>
+    </div>
+</div>                  
