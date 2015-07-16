@@ -6,9 +6,9 @@ Based upon the datepicker developed by [720kb](http://720kb.net).
 Following modifications made:
 * Move template into separate file
 * Update to follow John Papa styleguide
-* Swap out HTML5 entities for glyphicons
+* swap out HTML5 entities for glyphicons
 * include inputbox in template (this was required for project I was working on)
-* validate that userinput matches angular date format set for directive
+* validate that user input matches angular date format set for directive (using UI Bootstrap DateParser)
  
 
 Angular datepicker is an angularjs directive that generates a datepicker calendar on your input element.
@@ -17,8 +17,8 @@ Angular datepicker is an angularjs directive that generates a datepicker calenda
 ##Requirements
 
 
-AngularJS v1.2+
-UI.Bootstrap DateParser (UI.Bootstrap 0.13.0)
+* AngularJS v1.2+
+* UI.Bootstrap DateParser (UI.Bootstrap 0.13.0)
 
 ##Screen
 ![Angular datepicker calendar](http://i.imgur.com/44ut0ET.png)
